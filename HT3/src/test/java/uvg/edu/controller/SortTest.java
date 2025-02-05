@@ -4,15 +4,27 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+/**
+ * Test class for Sort.
+ * Authors:
+ *    Javier Alvarado - 24546
+ *    Juan Montenegro - 24750
+ */
 class SortTest {
     private Sort<Integer> sort;
 
+    /**
+     * Sets up the test environment before each test.
+     */
     @BeforeEach
     void setUp() {
         IComparator<Integer> comparator = Integer::compare;
         sort = new Sort<>(comparator);
     }
 
+    /**
+     * Tests the insertion sort algorithm.
+     */
     @Test
     void testInsertionSort() {
         Integer[] array = {5, 3, 8, 4, 2};
@@ -21,6 +33,9 @@ class SortTest {
         assertArrayEquals(expected, array);
     }
 
+    /**
+     * Tests the merge sort algorithm.
+     */
     @Test
     void testMergeSort() {
         Integer[] array = {9, 7, 5, 3, 1};
@@ -29,6 +44,9 @@ class SortTest {
         assertArrayEquals(expected, array);
     }
 
+    /**
+     * Tests the quick sort algorithm.
+     */
     @Test
     void testQuickSort() {
         Integer[] array = {10, 15, 5, 3, 7};
@@ -37,6 +55,9 @@ class SortTest {
         assertArrayEquals(expected, array);
     }
 
+    /**
+     * Tests the radix sort algorithm.
+     */
     @Test
     void testRadixSort() {
         int[] array = {170, 45, 75, 90, 802, 24, 2, 66};
@@ -45,6 +66,9 @@ class SortTest {
         assertArrayEquals(expected, array);
     }
 
+    /**
+     * Tests the bucket sort algorithm.
+     */
     @Test
     void testBucketSort() {
         float[] array = {0.42f, 0.32f, 0.23f, 0.52f, 0.25f, 0.47f, 0.51f};
@@ -53,6 +77,9 @@ class SortTest {
         assertArrayEquals(expected, array);
     }
 
+    /**
+     * Tests the shell sort algorithm.
+     */
     @Test
     void testShellSort() {
         Integer[] array = {19, 8, 7, 3, 5};

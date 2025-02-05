@@ -4,13 +4,31 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+/**
+ * Class to perform various sorting algorithms.
+ *
+ * @param <T> the type of elements to be sorted
+ * Authors:
+ *     Javier Alvarado - 24546
+ *     Juan Montenegro - 24750
+ */
 public class Sort<T> {
     public IComparator<T> comparator;
 
+    /**
+     * Constructor to initialize the Sort object with a comparator.
+     *
+     * @param comparator the comparator to be used for sorting
+     */
     public Sort(IComparator<T> comparator) {
         this.comparator = comparator;
     }
 
+    /**
+     * Performs insertion sort on the given array.
+     *
+     * @param array the array to be sorted
+     */
     public void insertionSort(T[] array) {
         for (int i = 1; i < array.length; i++) {
             T key = array[i];
@@ -23,6 +41,11 @@ public class Sort<T> {
         }
     }
 
+    /**
+     * Performs merge sort on the given array.
+     *
+     * @param array the array to be sorted
+     */
     public void mergeSort(T[] array) {
         if (array.length <= 1) return;
         int mid = array.length / 2;
@@ -47,11 +70,23 @@ public class Sort<T> {
         while (j < right.length) array[k++] = right[j++];
     }
 
+    /**
+     * Performs quick sort on the given array.
+     *
+     * @param array the array to be sorted
+     */
     public void quickSort(T[] array) {
         int low = 0, high = array.length - 1;
         quickSortHelper(array, low, high);
     }
 
+    /**
+     * Helper method for quick sort.
+     *
+     * @param array the array to be sorted
+     * @param low the starting index
+     * @param high the ending index
+     */
     private void quickSortHelper(T[] array, int low, int high) {
         if (low < high) {
             T pivot = array[high];
@@ -73,6 +108,11 @@ public class Sort<T> {
         }
     }
 
+    /**
+     * Performs radix sort on the given array of integers.
+     *
+     * @param array the array to be sorted
+     */
     public void radixSort(int[] array) {
         int max = array[0];
         for (int num : array) {
@@ -93,6 +133,11 @@ public class Sort<T> {
         }
     }
 
+    /**
+     * Performs bucket sort on the given array of floats.
+     *
+     * @param array the array to be sorted
+     */
     public void bucketSort(float[] array) {
         int n = array.length;
         if (n <= 0) return;
@@ -112,6 +157,11 @@ public class Sort<T> {
         }
     }
 
+    /**
+     * Performs shell sort on the given array.
+     *
+     * @param array the array to be sorted
+     */
     public void shellSort(T[] array) {
         int n = array.length;
         for (int gap = n / 2; gap > 0; gap /= 2) {
