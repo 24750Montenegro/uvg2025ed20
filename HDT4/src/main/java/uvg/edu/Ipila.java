@@ -1,7 +1,7 @@
 package uvg.edu;
 import java.util.ArrayList;
 
-interface Stack<T> {
+interface Ipila<T> {
     void push(T item);
     T pop();
     T peek();

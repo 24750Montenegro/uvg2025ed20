@@ -1,14 +1,22 @@
 package uvg.edu;
-import java.util.ArrayList;
-import java.util.Vector;
-import java.util.Stack;
-import java.util.Scanner;
 
-class StackFactory {
-    public static <T> Stack<T> getStack(String type) {
+public class StackFactory {
+    private static StackFactory instance;
+
+    private StackFactory() {}
+
+    public static StackFactory getInstance() {
+        if (instance == null) {
+            instance = new StackFactory();
+        }
+        return instance;
+    }
+
+    public <T> Ipila<T> getStack(String type) {
         switch (type.toLowerCase()) {
             case "arraylist": return new ArrayListStack<>();
             case "vector": return new VectorStack<>();
+            case "lista": return new Lista<>();
             default: throw new IllegalArgumentException("Tipo de pila no válido");
         }
     }

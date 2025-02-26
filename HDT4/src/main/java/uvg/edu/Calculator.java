@@ -1,20 +1,24 @@
 package uvg.edu;
+
 import java.util.Map;
-import uvg.edu.Stack;
-import uvg.edu.ArrayListStack;
-import uvg.edu.StackFactory;
 
 class Calculator {
     private static Calculator instance;
-    private Calculator() {}
+    private StackFactory stackFactory;
+
+    private Calculator() {
+        stackFactory = StackFactory.getInstance();
+    }
+
     public static Calculator getInstance() {
-        if (instance == null) instance = new Calculator();
+        if (instance == null) {
+            instance = new Calculator();
+        }
         return instance;
     }
 
-    // Conversión de infix a postfix
     public String infixToPostfix(String infix) {
-        Stack<Character> stack = new ArrayListStack<>();
+        Ipila<Character> stack = stackFactory.getStack("arraylist");
         StringBuilder postfix = new StringBuilder();
         Map<Character, Integer> precedence = Map.of('+', 1, '-', 1, '*', 2, '/', 2);
 
@@ -34,9 +38,8 @@ class Calculator {
         return postfix.toString();
     }
 
-    // Evaluación de postfix
     public int evaluatePostfix(String postfix) {
-        Stack<Integer> stack = new ArrayListStack<>();
+        Ipila<Integer> stack = stackFactory.getStack("arraylist");
         for (String token : postfix.split(" ")) {
             if (token.matches("\\d+")) stack.push(Integer.parseInt(token));
             else {
