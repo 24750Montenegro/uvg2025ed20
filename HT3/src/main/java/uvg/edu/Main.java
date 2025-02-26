@@ -9,7 +9,7 @@ import java.util.Random;
 
 public class Main {
     public static void main(String[] args) {
-        int[] numbers = new int[3000];
+        int[] numbers = new int[4000000];
         Random random = new Random();
 
         for (int i = 0; i < numbers.length; i++) {
@@ -39,6 +39,9 @@ public class Main {
 
         Sort<Integer> sort = new Sort<>(comparator);
 
+        // Insertion Sort
+//        sort.insertionSort(numbersForSort.clone());
+//        System.out.println("Insertion Sort completed.");
 
         // Merge Sort
         sort.mergeSort(numbersForSort.clone());
