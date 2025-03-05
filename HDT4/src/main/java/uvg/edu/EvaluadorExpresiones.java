@@ -4,7 +4,14 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
+/**
+ * Clase que evalúa expresiones matemáticas desde un archivo de texto.
+ */
 public class EvaluadorExpresiones {
+    /**
+     * Método principal que solicita el tipo de pila y procesa las expresiones matemáticas desde un archivo.
+     * @param args Argumentos de línea de comandos (no utilizados en esta implementación).
+     */
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Seleccione el tipo de pila (arraylist, vector, lista):");
